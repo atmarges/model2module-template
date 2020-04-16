@@ -1,4 +1,4 @@
-from model2module_template.models import ModelTemplate
+from model2module.models import ModelTemplate
 
 dataset = [
     "Nakakaasar nman! ahhh... ang dami dami kong gagawin... kulang time...",

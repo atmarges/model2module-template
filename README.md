@@ -14,7 +14,7 @@ Create an instance of `ModelTemplate` and initialize it with the path of the fol
 Below is a sample code using a machine learing model trained for emotion classification:
 
 ```python
-from ml_template.models import ModelTemplate
+from model2module.models import ModelTemplate
 
 dataset = [
     "Nakakaasar nman! ahhh... ang dami dami kong gagawin... kulang time...",
