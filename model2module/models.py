@@ -70,6 +70,8 @@ class ModelTemplate():
         return pad_sequences(input_vectors, maxlen=maxlen)
 
     def predict_dataset(self, dataset, raw_output=False, output_type=0):
+        output = []
+
         dataset = self.tokenize_dataset(dataset, tokenizer=self.tokenizer)
         dataset = self.vectorize_dataset(
             dataset, word_index=self.word_index, maxlen=self.maxlen)
@@ -78,7 +80,13 @@ class ModelTemplate():
         if raw_output:
             return prediction
 
-        class_dict = self.load_classes(
-            classes_file=self.classes_file, output_type=output_type)
+        if type(output_type) != list:
+            output_type = [output_type, ]
 
-        return [class_dict[np.argmax(i)] for i in prediction]
+        for i in output_type:
+            class_dict = self.load_classes(
+                classes_file=self.classes_file, output_type=i)
+
+            output.append([class_dict[np.argmax(i)] for i in prediction])
+
+        return output

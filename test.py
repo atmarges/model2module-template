@@ -10,5 +10,6 @@ dataset = [
 ]
 
 model = ModelTemplate()
-pred = model.predict_dataset(dataset, raw_output=True, output_type='emotion')
+pred = model.predict_dataset(dataset, raw_output=False, output_type=[
+                             'emotion', 'sentiment'])
 print(pred)
